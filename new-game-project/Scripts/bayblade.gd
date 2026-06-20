@@ -1,7 +1,5 @@
 extends Node2D
 
-var shootable = true
-
 var spin_speed = 0.0
 var last_angle = null
 var velocity = Vector2.ZERO
@@ -14,34 +12,16 @@ var spin_efficiency = 0.2  # how well mouse input converts to spin
 func _ready():
 	connect("area_entered", _on_hit)
 	print("Connected!", name)
-	add_to_group("beyblades")
 
 func _process(delta):
 	rotation += spin_speed * delta
 	position += velocity * delta
 	
-	if shootable == true:
-		return
-
-	# steer toward nearest other beyblade
-	var others = get_tree().get_nodes_in_group("beyblades")
-	var nearest = null
-	var nearest_dist = INF
-	for b in others:
-		if b == self:
-			continue
-		var dist = global_position.distance_to(b.global_position)
-		if dist < nearest_dist:
-			nearest_dist = dist
-			nearest = b
-	if nearest:
-		var dir = (nearest.global_position - global_position).normalized()
-		velocity += dir * 20.0
 	var size = get_viewport_rect().size
-	if position.x < 10 or position.x > size.x - 10.0:
+	if position.x < 0 + 10 or position.x > size.x - 10.0:
 		velocity.x *= -1
 		take_hit(spin_reduction_on_hit, speed_reduction_on_hit)
-	if position.y < 10 or position.y > size.y - 10.0:
+	if position.y < 0 or position.y > size.y:
 		velocity.y *= -1
 		take_hit(spin_reduction_on_hit, speed_reduction_on_hit)
 
