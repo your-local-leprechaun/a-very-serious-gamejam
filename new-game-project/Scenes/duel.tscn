@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://yicge48108e0"]
+
+[ext_resource type="Script" uid="uid://dpwsn3chtdaep" path="res://Scenes/duel.gd" id="1_2cytu"]
+[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://Scenes/player.tscn" id="2_jva5x"]
+[ext_resource type="PackedScene" uid="uid://cohiqpndtgam" path="res://Scenes/enemy.tscn" id="3_2ltq3"]
+
+[node name="Duel" type="Node2D" unique_id=614355414]
+script = ExtResource("1_2cytu")
+
+[node name="Player" parent="." unique_id=1756507306 instance=ExtResource("2_jva5x")]
+position = Vector2(167, 139)
+
+[node name="Enemy" parent="." unique_id=2038032635 instance=ExtResource("3_2ltq3")]
+position = Vector2(1644, 878)

@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bbvbfgsytow76"]
+
+[ext_resource type="Script" uid="uid://d4i3d16b7mhpl" path="res://Scenes/menu.gd" id="1_1rerr"]
+
+[node name="Menu" type="Control" unique_id=158747813]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1rerr")
+
+[node name="Start" type="Button" parent="." unique_id=1813104787]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 707.0
+offset_top = 510.0
+offset_right = 1207.0
+offset_bottom = 660.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 0)
+theme_override_font_sizes/font_size = 75
+text = "Start"
+
+[node name="Options" type="Button" parent="." unique_id=1083466512]
+layout_mode = 0
+offset_left = 710.0
+offset_top = 690.0
+offset_right = 1210.0
+offset_bottom = 840.0
+theme_override_font_sizes/font_size = 75
+text = "Options"
+
+[node name="Exit" type="Button" parent="." unique_id=1809767252]
+layout_mode = 0
+offset_left = 710.0
+offset_top = 870.0
+offset_right = 1210.0
+offset_bottom = 1020.0
+theme_override_font_sizes/font_size = 75
+text = "Quit"
+
+[node name="Label" type="Label" parent="." unique_id=1209443714]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 113.0
+offset_right = 1728.0
+offset_bottom = 390.0
+theme_override_font_sizes/font_size = 100
+text = "Legally Distinct 
+Spin-Fighter"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

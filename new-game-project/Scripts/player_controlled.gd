@@ -1,9 +1,13 @@
 extends 'bayblade.gd'
 
+var launch_ready = false
+
 func _ready():
 	super()
 
 func _input(event):
+	if not launch_ready:
+		return
 	if event is InputEventMouseMotion and Input.is_key_pressed(KEY_SPACE):
 		var mouse_pos = get_global_mouse_position()
 		var dir = mouse_pos - global_position
@@ -17,6 +21,5 @@ func _input(event):
 		last_angle = current_angle
 
 	if event is InputEventKey and event.keycode == KEY_SPACE and not event.pressed:
-		shootable = false
-		velocity = Vector2.from_angle(last_angle) * spin_speed * 50.0
+		launch()
 		last_angle = null

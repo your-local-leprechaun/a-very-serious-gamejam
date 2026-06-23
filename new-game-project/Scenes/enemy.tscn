@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://3s18uwatwtrt" path="res://Scripts/enemy_beyblade.gd" id="1_hghv2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hghv2"]
-radius = 25.019993
+radius = 35.014282
 
 [node name="Enemy" type="Area2D" unique_id=1126072166]
 script = ExtResource("1_hghv2")
