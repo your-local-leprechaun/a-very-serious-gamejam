@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://fqigh21xhsk5" path="res://Images/Backgrounds/img_bg_arena_standard.png" id="2_2ltq3"]
 [ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://Scenes/player.tscn" id="2_jva5x"]
 [ext_resource type="PackedScene" uid="uid://cohiqpndtgam" path="res://Scenes/enemy.tscn" id="3_2ltq3"]
+[ext_resource type="FontFile" uid="uid://cqm8w3xgl3ipn" path="res://Fonts/Beyblade Metal Fight Font.ttf" id="5_2ltq3"]
 
 [node name="Duel" type="Node2D" unique_id=614355414]
 script = ExtResource("1_2cytu")
@@ -18,3 +19,22 @@ position = Vector2(632, 541)
 
 [node name="Enemy" parent="." unique_id=2038032635 instance=ExtResource("3_2ltq3")]
 position = Vector2(1274, 542)
+
+[node name="Countdown" type="RichTextLabel" parent="." unique_id=2012105277]
+offset_left = 403.0
+offset_top = 363.0
+offset_right = 1448.0
+offset_bottom = 705.0
+theme_override_colors/default_color = Color(0.9767836, 0, 0.20335731, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 80
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 45
+theme_override_fonts/normal_font = ExtResource("5_2ltq3")
+theme_override_font_sizes/normal_font_size = 300
+text = "DUEL!"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
