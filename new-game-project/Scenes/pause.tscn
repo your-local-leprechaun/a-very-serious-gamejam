@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://cngtn2ntnh4ee"]
+
+[ext_resource type="Script" uid="uid://cuf50bjptr87w" path="res://Scripts/pause.gd" id="1_l2mpd"]
+[ext_resource type="FontFile" uid="uid://cqm8w3xgl3ipn" path="res://Fonts/Beyblade Metal Fight Font.ttf" id="2_5a6ek"]
+
+[node name="Pause" type="Control" unique_id=1858424436]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_l2mpd")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1502018897]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1921.0
+offset_bottom = 1081.0
+color = Color(0, 0, 0, 0.11764706)
+
+[node name="Wins" type="Label" parent="." unique_id=1912652183]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 100.0
+offset_right = 1660.0
+offset_bottom = 500.0
+theme_override_colors/font_color = Color(0.9764706, 0, 0.20392157, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = -42
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 40
+theme_override_constants/shadow_outline_size = 100
+theme_override_fonts/font = ExtResource("2_5a6ek")
+theme_override_font_sizes/font_size = 280
+text = "pausED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="Button" parent="." unique_id=1330738393]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 660.0
+offset_top = 514.0
+offset_right = 1260.0
+offset_bottom = 664.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5a6ek")
+theme_override_font_sizes/font_size = 120
+text = "MENU"
+
+[node name="Option" type="Button" parent="." unique_id=726546761]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 660.0
+offset_top = 680.0
+offset_right = 1260.0
+offset_bottom = 830.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5a6ek")
+theme_override_font_sizes/font_size = 120
+text = "OpTION"
+
+[node name="Quit" type="Button" parent="." unique_id=1803794604]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 660.0
+offset_top = 852.0
+offset_right = 1260.0
+offset_bottom = 1002.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5a6ek")
+theme_override_font_sizes/font_size = 120
+text = "QuIt"
+
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

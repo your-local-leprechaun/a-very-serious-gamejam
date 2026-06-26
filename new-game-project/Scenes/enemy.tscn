@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cohiqpndtgam"]
 
 [ext_resource type="Script" uid="uid://3s18uwatwtrt" path="res://Scripts/enemy_beyblade.gd" id="1_hghv2"]
+[ext_resource type="Texture2D" uid="uid://btss5kodr3thh" path="res://Images/Sprites/img_spr_top_rival.png" id="2_1f0kj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hghv2"]
 radius = 35.014282
@@ -8,12 +9,9 @@ radius = 35.014282
 [node name="Enemy" type="Area2D" unique_id=1126072166]
 script = ExtResource("1_hghv2")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1275896161]
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 25.0
-color = Color(1, 0, 0, 1)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=868868249]
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("2_1f0kj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=127931043]
 shape = SubResource("CircleShape2D_hghv2")

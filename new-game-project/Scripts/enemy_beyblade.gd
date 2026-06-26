@@ -13,6 +13,7 @@ func _ready():
 	spin_speed = 0.0
 	velocity = Vector2.ZERO
 	charge_duration = randf_range(3.0, 10.0)
+	spin_speed_text = $"../SMP/Enemy"
 	#start_countdown()
 
 func start_countdown():

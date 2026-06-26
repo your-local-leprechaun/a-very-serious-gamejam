@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://be8qbmt0fe144"]
 
 [ext_resource type="Script" uid="uid://br5e0nv1k4c6l" path="res://Scripts/player_controlled.gd" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://yu7inxx7mn40" path="res://Images/Sprites/img_spr_top_bayblade.png" id="2_cvnsp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v0iea"]
 radius = 36.0
@@ -8,12 +9,9 @@ radius = 36.0
 [node name="Player" type="Area2D" unique_id=150747052]
 script = ExtResource("1_v0iea")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=905718008]
-offset_left = -25.0
-offset_top = -25.0
-offset_right = 25.0
-offset_bottom = 25.0
-color = Color(0.12476999, 0.41997808, 0.9999998, 1)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1387795109]
+scale = Vector2(0.37, 0.37)
+texture = ExtResource("2_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=806767601]
 shape = SubResource("CircleShape2D_v0iea")

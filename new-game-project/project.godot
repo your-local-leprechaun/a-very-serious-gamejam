@@ -10,14 +10,10 @@ config_version=5
 
 [application]
 
-config/name="A Very Serious Game Jam"
-run/main_scene="uid://yicge48108e0"
+config/name="Legally Distinct Spin-Fighter"
+run/main_scene="uid://bbvbfgsytow76"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
-
-[autoload]
-
-HighLevelNetworkHandler="*uid://c3rnx7wkxth3u"
 
 [display]
 

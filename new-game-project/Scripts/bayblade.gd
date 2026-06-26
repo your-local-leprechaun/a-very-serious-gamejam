@@ -2,6 +2,8 @@ extends Node2D
 
 signal beyblade_stopped
 
+var spin_speed_text = ""
+
 var spin_speed = 0.0
 var last_angle = null
 var velocity = Vector2.ZERO
@@ -27,6 +29,10 @@ func _ready():
 func _process(delta):
 	if frozen:
 		return
+	
+	# Show spin speed
+	spin_speed_text.text = str(int(spin_speed * 100)) + " SPM"
+	
 	rotation += spin_speed * delta
 	position += velocity * delta
 	
@@ -62,6 +68,7 @@ func _process(delta):
 
 	if abs(spin_speed) < 7.0 and launched:
 		spin_speed = 0.0
+		spin_speed_text.text = "0 SPM"
 		emit_signal("beyblade_stopped")
 
 func take_hit(spin_reduction: float, speed_reduction: float):
@@ -77,7 +84,7 @@ func _on_hit(other):
 			other.take_hit(0.15, 0.05)
 			@warning_ignore("confusable_local_declaration")
 			var dir = (other.global_position - global_position).normalized()
-			other.velocity += -dir * other.spin_speed * 500.0
+			other.velocity += dir * other.spin_speed * 500.0
 			print(name, " parried ", other.name)
 		return
 	

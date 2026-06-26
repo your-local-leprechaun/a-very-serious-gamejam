@@ -2,8 +2,8 @@ extends Node2D
 
 @export var enemy_scene: PackedScene
 
-enum State { COUNTDOWN, PLAYING, ENDED }
-var state = State.COUNTDOWN
+enum State { DIALOGUE, COUNTDOWN, PLAYING, ENDED }
+var state = State.DIALOGUE
 var countdown = 4
 var countdown_timer = 0.0
 var countdown_label_remove = 3
@@ -19,8 +19,8 @@ func start_duel():
 	countdown_timer = 0.0
 	$Countdown.visible = true
 	$Countdown.text = ""
-	$Player.beyblade_stopped.connect(_on_beyblade_stopped.bind("Enemy wins!"))
-	$Enemy.beyblade_stopped.connect(_on_beyblade_stopped.bind("Player wins!"))
+	$Player.beyblade_stopped.connect(_on_beyblade_stopped.bind("ENEMY"))
+	$Enemy.beyblade_stopped.connect(_on_beyblade_stopped.bind("BAYBLADE"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -54,5 +54,8 @@ func _on_beyblade_stopped(winner: String):
 		return
 	state = State.ENDED
 	print(winner)
+	# Show winner
+	$Endscreen.visible = true
+	$Endscreen/Wins.text = winner + "\nWINS"
 	$Player.freeze()
 	$Enemy.freeze()

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cbly7vnb3hext"]
 
-[ext_resource type="Script" uid="uid://bab75kgg5la8w" path="res://Scenes/high_level_ui.gd" id="1_c32x4"]
+[ext_resource type="Script" uid="uid://bab75kgg5la8w" path="res://Scripts/high_level_ui.gd" id="1_c32x4"]
 
 [node name="High Level UI" type="Control" unique_id=1430801293]
 layout_mode = 3
