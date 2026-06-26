@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CharInfo" format=3 uid="uid://b75lie5uad4p1"]
+
+[ext_resource type="Script" uid="uid://7p8b5s6tdtob" path="res://character_information.gd" id="1_ljntk"]
+
+[resource]
+script = ExtResource("1_ljntk")
+cname = "TOMBRaIDER"
+cname_exact = "Tombraider"
+entrance_lines = Array[String](["DID YOu BRING YOUR GRaNDPa's SPINNER?", "YOu'RE NOT EVEN WORTH THE TROuBLE."])
+win_lines = Array[String](["aRE YOu aWaRE YOu'RE THE WORST SPINNER?", "You'RE MEaNINGLESS TO MY EXISTENCE!"])
+spinner = "uid://qcmsj6qc53q"
+metadata/_custom_type_script = "uid://7p8b5s6tdtob"

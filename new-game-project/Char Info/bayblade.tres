@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharInfo" format=3 uid="uid://dxsa1dc6qs5r6"]
+
+[ext_resource type="Script" uid="uid://7p8b5s6tdtob" path="res://character_information.gd" id="1_acmqi"]
+
+[resource]
+script = ExtResource("1_acmqi")
+cname = "BayBLaDE"
+cname_exact = "Bayblade"
+entrance_lines = Array[String](["I'LL WIN THIS DuEL…\\naND THE NEXT ONE!", "YOu CaN'T BEaT ME!", "I BELIEVE IN\\nMY SpIN-BILITY!", "MY SpIN SpEED IS\\nOVER 5000!", "I'll SpIN BEYOND\\nMY LIMIT"])
+win_lines = Array[String](["YOu THOuGHT YOU COuLD BEaT ME?", "BETTER LUCK NEXT TIME!", "I'M SENDING YOu TO\\nTHE SPIN ZONE", "OH, I GET IT NOW! I'M\\nJUST aWESOME!"])
+char_sprite = "uid://b0yf15f503076"
+spinner = "uid://be8qbmt0fe144"
+metadata/_custom_type_script = "uid://7p8b5s6tdtob"

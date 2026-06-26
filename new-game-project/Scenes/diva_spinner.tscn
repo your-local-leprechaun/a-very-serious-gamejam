@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cqqtbfelpjoae"]
+
+[ext_resource type="Script" uid="uid://3s18uwatwtrt" path="res://Scripts/enemy_beyblade.gd" id="1_5qq8y"]
+[ext_resource type="Texture2D" uid="uid://cog3iv77vd0p8" path="res://Images/Sprites/img_spr_top_diva.png" id="2_puta8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hghv2"]
+radius = 35.014282
+
+[node name="Enemy" type="Area2D" unique_id=1126072166]
+script = ExtResource("1_5qq8y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=868868249]
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("2_puta8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=127931043]
+shape = SubResource("CircleShape2D_hghv2")

@@ -1,0 +1,226 @@
+[gd_scene format=3 uid="uid://yicge48108e0"]
+
+[ext_resource type="Script" uid="uid://dpwsn3chtdaep" path="res://Scripts/duel.gd" id="1_2cytu"]
+[ext_resource type="Texture2D" uid="uid://fqigh21xhsk5" path="res://Images/Backgrounds/img_bg_arena_standard.png" id="2_2ltq3"]
+[ext_resource type="FontFile" uid="uid://cqm8w3xgl3ipn" path="res://Fonts/Beyblade Metal Fight Font.ttf" id="5_2ltq3"]
+[ext_resource type="PackedScene" uid="uid://cngtn2ntnh4ee" path="res://Scenes/pause.tscn" id="6_c3w2v"]
+[ext_resource type="Texture2D" uid="uid://b0yf15f503076" path="res://Images/Sprites/img_spr_dialogue_bayblade.png" id="7_o8g1i"]
+[ext_resource type="Texture2D" uid="uid://de7y8tgbjk6qr" path="res://Images/Sprites/img_spr_dialogue_diva.png" id="9_80nj0"]
+[ext_resource type="Texture2D" uid="uid://dxtkx45ojdtn4" path="res://Images/Sprites/img_spr_dialogue_rival.png" id="10_rft8p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6omu1"]
+bg_color = Color(0.92535293, 0.9253528, 0.9253529, 1)
+border_width_left = 13
+border_width_bottom = 13
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 10
+
+[node name="Duel" type="Node2D" unique_id=614355414]
+script = ExtResource("1_2cytu")
+enemies = Array[String](["uid://biu0e8b277kry", "uid://cfa16l1cfr7ia", "uid://b75lie5uad4p1"])
+
+[node name="ImgBgArenaStandard" type="Sprite2D" parent="." unique_id=738613001]
+position = Vector2(960, 540)
+scale = Vector2(0.76029634, 0.75)
+texture = ExtResource("2_2ltq3")
+offset = Vector2(15.145, 0)
+
+[node name="Countdown" type="RichTextLabel" parent="." unique_id=2012105277]
+visible = false
+offset_left = 403.0
+offset_top = 363.0
+offset_right = 1448.0
+offset_bottom = 705.0
+theme_override_colors/default_color = Color(0.9767836, 0, 0.20335731, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 80
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 45
+theme_override_fonts/normal_font = ExtResource("5_2ltq3")
+theme_override_font_sizes/normal_font_size = 300
+text = "DUEL!"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Endscreen" type="Node2D" parent="." unique_id=362849697]
+visible = false
+
+[node name="Wins" type="Label" parent="Endscreen" unique_id=1380142032]
+offset_right = 1850.0
+offset_bottom = 813.0
+theme_override_colors/font_color = Color(0.9764706, 0, 0.20392157, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = -42
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 40
+theme_override_constants/shadow_outline_size = 100
+theme_override_fonts/font = ExtResource("5_2ltq3")
+theme_override_font_sizes/font_size = 280
+text = "BAYBLADE
+WINS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Press \'Space\'" type="Label" parent="Endscreen" unique_id=1902944653]
+offset_top = 720.0
+offset_right = 1850.0
+offset_bottom = 885.0
+theme_override_colors/font_color = Color(0.9764706, 0, 0.20392157, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = -42
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 50
+theme_override_fonts/font = ExtResource("5_2ltq3")
+theme_override_font_sizes/font_size = 60
+text = "PRESS 'SPACE' TO CONTINUE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pause" parent="." unique_id=1858424436 instance=ExtResource("6_c3w2v")]
+visible = false
+offset_left = -10.0
+offset_top = 15.0
+offset_right = -10.0
+offset_bottom = 15.0
+
+[node name="SMP" type="Control" parent="." unique_id=484332133]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player" type="Label" parent="SMP" unique_id=1221433402]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 980.0
+offset_right = 342.0
+offset_bottom = 1058.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 30
+theme_override_fonts/font = ExtResource("5_2ltq3")
+theme_override_font_sizes/font_size = 68
+text = "0 SPM"
+vertical_alignment = 2
+
+[node name="Enemy" type="Label" parent="SMP" unique_id=229393792]
+layout_mode = 0
+offset_left = 1467.0
+offset_top = 980.0
+offset_right = 1897.0
+offset_bottom = 1058.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 30
+theme_override_fonts/font = ExtResource("5_2ltq3")
+theme_override_font_sizes/font_size = 68
+text = "0 SPM"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Control" type="Control" parent="." unique_id=305672595]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Bayblade Sprite" type="Sprite2D" parent="Control" unique_id=384063963]
+position = Vector2(270, 358)
+scale = Vector2(0.6501155, 0.6501155)
+texture = ExtResource("7_o8g1i")
+
+[node name="Diva Sprite" type="Sprite2D" parent="Control" unique_id=973811224]
+visible = false
+position = Vector2(1695, 322)
+scale = Vector2(0.5640878, 0.5640878)
+texture = ExtResource("9_80nj0")
+
+[node name="Rival Sprite" type="Sprite2D" parent="Control" unique_id=1164953291]
+position = Vector2(1687.0001, 311.00006)
+scale = Vector2(0.70323324, 0.70323324)
+texture = ExtResource("10_rft8p")
+
+[node name="Text Box" type="Node2D" parent="Control" unique_id=1578516450]
+
+[node name="Panel" type="Panel" parent="Control/Text Box" unique_id=1711773514]
+offset_left = 60.0
+offset_top = 675.0
+offset_right = 1860.0
+offset_bottom = 1050.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6omu1")
+
+[node name="Dialogue" type="Label" parent="Control/Text Box" unique_id=1944476488]
+offset_left = 58.0
+offset_top = 724.0
+offset_right = 1861.0
+offset_bottom = 1054.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("5_2ltq3")
+theme_override_font_sizes/font_size = 125
+text = "You'RE MEaNINGLESS TO MY EXISTENCE!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Bayblade Name" type="Label" parent="Control/Text Box" unique_id=225241139]
+offset_left = 100.0
+offset_top = 650.0
+offset_right = 500.0
+offset_bottom = 725.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 40
+theme_override_fonts/font = ExtResource("5_2ltq3")
+theme_override_font_sizes/font_size = 77
+text = "BayBLaDE"
+
+[node name="Enemy Name" type="Label" parent="Control/Text Box" unique_id=693645365]
+offset_left = 1420.0
+offset_top = 650.0
+offset_right = 1820.0
+offset_bottom = 725.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 40
+theme_override_fonts/font = ExtResource("5_2ltq3")
+theme_override_font_sizes/font_size = 77
+text = "RIVaL"
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="Control/Text Box" unique_id=348078198]
+offset_left = 1267.0
+offset_top = 1029.0
+offset_right = 1874.0
+offset_bottom = 1067.0
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_2ltq3")
+theme_override_font_sizes/font_size = 40
+text = "PRESS 'SPACE' TO CONTINUE "

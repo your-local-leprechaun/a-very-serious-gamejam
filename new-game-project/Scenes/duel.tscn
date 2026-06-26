@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dpwsn3chtdaep" path="res://Scripts/duel.gd" id="1_2cytu"]
 [ext_resource type="Texture2D" uid="uid://fqigh21xhsk5" path="res://Images/Backgrounds/img_bg_arena_standard.png" id="2_2ltq3"]
-[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://Scenes/player.tscn" id="2_jva5x"]
-[ext_resource type="PackedScene" uid="uid://cohiqpndtgam" path="res://Scenes/enemy.tscn" id="3_2ltq3"]
 [ext_resource type="FontFile" uid="uid://cqm8w3xgl3ipn" path="res://Fonts/Beyblade Metal Fight Font.ttf" id="5_2ltq3"]
 [ext_resource type="PackedScene" uid="uid://cngtn2ntnh4ee" path="res://Scenes/pause.tscn" id="6_c3w2v"]
 [ext_resource type="Texture2D" uid="uid://b0yf15f503076" path="res://Images/Sprites/img_spr_dialogue_bayblade.png" id="7_o8g1i"]
 [ext_resource type="Texture2D" uid="uid://dh7lsmx1wfmdt" path="res://Images/Sprites/img_spr_dialogue_tombraider.png" id="8_w47qb"]
 [ext_resource type="Texture2D" uid="uid://de7y8tgbjk6qr" path="res://Images/Sprites/img_spr_dialogue_diva.png" id="9_80nj0"]
+[ext_resource type="Script" uid="uid://dsxihspooj28f" path="res://Scripts/audio_stream_player.gd" id="9_b1nmi"]
+[ext_resource type="PackedScene" uid="uid://3jxtu6d60e7q" path="res://Scenes/options.tscn" id="9_rft8p"]
 [ext_resource type="Texture2D" uid="uid://dxtkx45ojdtn4" path="res://Images/Sprites/img_spr_dialogue_rival.png" id="10_rft8p"]
+[ext_resource type="Script" uid="uid://w2b37rxwx3b6" path="res://Scripts/sounds.gd" id="10_w47qb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6omu1"]
 bg_color = Color(0.92535293, 0.9253528, 0.9253529, 1)
@@ -24,17 +25,13 @@ shadow_size = 10
 
 [node name="Duel" type="Node2D" unique_id=614355414]
 script = ExtResource("1_2cytu")
+enemies = Array[String](["uid://biu0e8b277kry", "uid://cfa16l1cfr7ia", "uid://b75lie5uad4p1"])
 
 [node name="ImgBgArenaStandard" type="Sprite2D" parent="." unique_id=738613001]
-position = Vector2(960.4999, 540)
-scale = Vector2(0.7496094, 0.75)
+position = Vector2(960, 540)
+scale = Vector2(0.76029634, 0.75)
 texture = ExtResource("2_2ltq3")
-
-[node name="Player" parent="." unique_id=1756507306 instance=ExtResource("2_jva5x")]
-position = Vector2(632, 541)
-
-[node name="Enemy" parent="." unique_id=2038032635 instance=ExtResource("3_2ltq3")]
-position = Vector2(1274, 542)
+offset = Vector2(15.145, 0)
 
 [node name="Countdown" type="RichTextLabel" parent="." unique_id=2012105277]
 visible = false
@@ -60,8 +57,8 @@ vertical_alignment = 1
 visible = false
 
 [node name="Wins" type="Label" parent="Endscreen" unique_id=1380142032]
-offset_right = 1850.0
-offset_bottom = 813.0
+offset_right = 1923.0
+offset_bottom = 512.0
 theme_override_colors/font_color = Color(0.9764706, 0, 0.20392157, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
@@ -71,13 +68,14 @@ theme_override_constants/shadow_offset_y = 0
 theme_override_constants/outline_size = 40
 theme_override_constants/shadow_outline_size = 100
 theme_override_fonts/font = ExtResource("5_2ltq3")
-theme_override_font_sizes/font_size = 280
-text = "BAYBLADE
+theme_override_font_sizes/font_size = 230
+text = "WHO
 WINS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Press \'Space\'" type="Label" parent="Endscreen" unique_id=1902944653]
+visible = false
 offset_top = 720.0
 offset_right = 1850.0
 offset_bottom = 885.0
@@ -94,13 +92,6 @@ theme_override_font_sizes/font_size = 60
 text = "PRESS 'SPACE' TO CONTINUE"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Pause" parent="." unique_id=1858424436 instance=ExtResource("6_c3w2v")]
-visible = false
-offset_left = -10.0
-offset_top = 15.0
-offset_right = -10.0
-offset_bottom = 15.0
 
 [node name="SMP" type="Control" parent="." unique_id=484332133]
 visible = false
@@ -147,17 +138,34 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Control" type="Control" parent="." unique_id=305672595]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Bayblade" type="Node2D" parent="Control" unique_id=1421120383]
-
-[node name="Sprite" type="Sprite2D" parent="Control/Bayblade" unique_id=384063963]
+[node name="Bayblade Sprite" type="Sprite2D" parent="Control" unique_id=384063963]
 position = Vector2(270, 358)
 scale = Vector2(0.6501155, 0.6501155)
 texture = ExtResource("7_o8g1i")
+
+[node name="Diva Sprite" type="Sprite2D" parent="Control" unique_id=973811224]
+visible = false
+position = Vector2(1695, 322)
+scale = Vector2(0.5640878, 0.5640878)
+texture = ExtResource("9_80nj0")
+
+[node name="Rival Sprite" type="Sprite2D" parent="Control" unique_id=1164953291]
+visible = false
+position = Vector2(1687.0001, 311.00006)
+scale = Vector2(0.70323324, 0.70323324)
+texture = ExtResource("10_rft8p")
+
+[node name="Tombraider Sprite" type="Sprite2D" parent="Control" unique_id=1390201718]
+visible = false
+position = Vector2(1604, 371)
+scale = Vector2(0.7852194, 0.78521943)
+texture = ExtResource("8_w47qb")
 
 [node name="Text Box" type="Node2D" parent="Control" unique_id=1578516450]
 
@@ -168,30 +176,80 @@ offset_right = 1860.0
 offset_bottom = 1050.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_6omu1")
 
-[node name="Label" type="Label" parent="Control/Text Box" unique_id=1944476488]
-offset_left = 47.0
-offset_top = 684.0
+[node name="Dialogue" type="Label" parent="Control/Text Box" unique_id=1944476488]
+offset_left = 58.0
+offset_top = 724.0
 offset_right = 1861.0
-offset_bottom = 1030.0
+offset_bottom = 1054.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("5_2ltq3")
-theme_override_font_sizes/font_size = 150
-text = "I'LL WIN THIS DUEL... AND THE NEXT ONE!"
+theme_override_font_sizes/font_size = 125
+text = "You'RE MEaNINGLESS TO MY EXISTENCE!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="ImgSprDialogueTombraider" type="Sprite2D" parent="." unique_id=2068289670]
-position = Vector2(1217, 395)
-texture = ExtResource("8_w47qb")
+[node name="Bayblade Name" type="Label" parent="Control/Text Box" unique_id=225241139]
+offset_left = 100.0
+offset_top = 650.0
+offset_right = 500.0
+offset_bottom = 725.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 40
+theme_override_fonts/font = ExtResource("5_2ltq3")
+theme_override_font_sizes/font_size = 77
+text = "BayBLaDE"
 
-[node name="ImgSprDialogueDiva" type="Sprite2D" parent="." unique_id=1704434682]
-position = Vector2(1753, 197)
-texture = ExtResource("9_80nj0")
+[node name="Enemy Name" type="Label" parent="Control/Text Box" unique_id=693645365]
+visible = false
+offset_left = 1265.0
+offset_top = 650.0
+offset_right = 1796.0
+offset_bottom = 725.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 40
+theme_override_fonts/font = ExtResource("5_2ltq3")
+theme_override_font_sizes/font_size = 77
+text = "TOMBRaIDER"
+horizontal_alignment = 2
 
-[node name="ImgSprDialogueRival" type="Sprite2D" parent="." unique_id=523818482]
-position = Vector2(730, 371)
-texture = ExtResource("10_rft8p")
+[node name="Label" type="Label" parent="Control/Text Box" unique_id=348078198]
+offset_left = 1267.0
+offset_top = 1029.0
+offset_right = 1874.0
+offset_bottom = 1067.0
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_2ltq3")
+theme_override_font_sizes/font_size = 40
+text = "PRESS 'SPACE' TO CONTINUE"
+
+[node name="Pause" parent="." unique_id=1858424436 instance=ExtResource("6_c3w2v")]
+visible = false
+offset_left = -10.0
+offset_top = 15.0
+offset_right = -10.0
+offset_bottom = 15.0
+
+[node name="Options" parent="." unique_id=1328279289 instance=ExtResource("9_rft8p")]
+process_mode = 3
+visible = false
+back_path = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=64018190]
+volume_db = -17.0
+autoplay = true
+script = ExtResource("9_b1nmi")
+tracks = Array[String](["uid://kyo4417h0d2w", "uid://decs1vb6j4kvs", "uid://kpcayuxj0r3o"])
+
+[node name="Sounds" type="AudioStreamPlayer" parent="." unique_id=1692032415]
+volume_db = -5.0
+script = ExtResource("10_w47qb")

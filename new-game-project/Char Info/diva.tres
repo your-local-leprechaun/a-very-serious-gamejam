@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CharInfo" format=3 uid="uid://biu0e8b277kry"]
+
+[ext_resource type="Script" uid="uid://7p8b5s6tdtob" path="res://character_information.gd" id="1_alu7p"]
+
+[resource]
+script = ExtResource("1_alu7p")
+cname = "DIVa"
+cname_exact = "Diva"
+entrance_lines = Array[String](["LET'S HaVE a GOOD\\nMaTCH!", "PROMISE TO LET ME WIN, OKaY?"])
+win_lines = Array[String](["I WON aGaIN!", "THaNKS FOR THE WIN!"])
+spinner = "uid://cqqtbfelpjoae"
+metadata/_custom_type_script = "uid://7p8b5s6tdtob"

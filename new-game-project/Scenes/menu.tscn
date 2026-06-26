@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://bbvbfgsytow76"]
 
 [ext_resource type="Script" uid="uid://d4i3d16b7mhpl" path="res://Scripts/menu.gd" id="1_1rerr"]
+[ext_resource type="Texture2D" uid="uid://dddxix8gu6it4" path="res://Images/Backgrounds/Hex-pattern.png" id="2_wbdvm"]
 [ext_resource type="FontFile" uid="uid://cqm8w3xgl3ipn" path="res://Fonts/Beyblade Metal Fight Font.ttf" id="2_xhh6f"]
 [ext_resource type="Texture2D" uid="uid://b0yf15f503076" path="res://Images/Sprites/img_spr_dialogue_bayblade.png" id="3_cayip"]
 [ext_resource type="Texture2D" uid="uid://de7y8tgbjk6qr" path="res://Images/Sprites/img_spr_dialogue_diva.png" id="3_jsrd8"]
 [ext_resource type="Texture2D" uid="uid://dh7lsmx1wfmdt" path="res://Images/Sprites/img_spr_dialogue_tombraider.png" id="5_wbdvm"]
 [ext_resource type="Texture2D" uid="uid://dxtkx45ojdtn4" path="res://Images/Sprites/img_spr_dialogue_rival.png" id="6_q3rjx"]
+[ext_resource type="PackedScene" uid="uid://3jxtu6d60e7q" path="res://Scenes/options.tscn" id="8_6swd7"]
+[ext_resource type="AudioStream" uid="uid://dih053rrrpara" path="res://Music/melodyayresgriffiths-godzilla-japanese-electronic-soundtrack-battle-fight-game-148237.mp3" id="8_q3rjx"]
 
 [node name="Menu" type="Control" unique_id=158747813]
 layout_mode = 3
@@ -21,6 +24,13 @@ layout_mode = 0
 offset_right = 1923.0
 offset_bottom = 1084.0
 color = Color(0.9569028, 0.8645749, 0.8308523, 1)
+
+[node name="HexPattern" type="Sprite2D" parent="." unique_id=917813146]
+modulate = Color(0, 1, 1, 0.34901962)
+position = Vector2(975.0081, 557.9029)
+rotation = 0.55676
+scale = Vector2(1.1856143, 1.1365254)
+texture = ExtResource("2_wbdvm")
 
 [node name="Main Menu" type="Node2D" parent="." unique_id=1911542338]
 
@@ -83,26 +93,38 @@ theme_override_fonts/font = ExtResource("2_xhh6f")
 theme_override_font_sizes/font_size = 120
 text = "QuIt"
 
-[node name="ImgSprDialogueDiva" type="Sprite2D" parent="." unique_id=1696988410]
+[node name="ImgSprDialogueDiva" type="Sprite2D" parent="Main Menu" unique_id=1696988410]
 position = Vector2(157.00002, 672.00006)
 scale = Vector2(0.6650467, 0.6650467)
 texture = ExtResource("3_jsrd8")
 flip_h = true
 
-[node name="ImgSprDialogueBayblade" type="Sprite2D" parent="." unique_id=627941026]
+[node name="ImgSprDialogueBayblade" type="Sprite2D" parent="Main Menu" unique_id=627941026]
 position = Vector2(489.00003, 718.00006)
 scale = Vector2(0.70711267, 0.7071126)
 texture = ExtResource("3_cayip")
 
-[node name="ImgSprDialogueTombraider" type="Sprite2D" parent="." unique_id=1446616626]
+[node name="ImgSprDialogueTombraider" type="Sprite2D" parent="Main Menu" unique_id=1446616626]
 position = Vector2(1782, 615.00006)
 scale = Vector2(0.88491446, 0.88491446)
 texture = ExtResource("5_wbdvm")
 
-[node name="ImgSprDialogueRival" type="Sprite2D" parent="." unique_id=1331031717]
+[node name="ImgSprDialogueRival" type="Sprite2D" parent="Main Menu" unique_id=1331031717]
 position = Vector2(1462, 779.00006)
 scale = Vector2(0.8709175, 0.8709175)
 texture = ExtResource("6_q3rjx")
 
+[node name="Options" parent="." unique_id=1328279289 instance=ExtResource("8_6swd7")]
+visible = false
+layout_mode = 1
+back_path = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1280549666]
+stream = ExtResource("8_q3rjx")
+volume_db = -15.0
+autoplay = true
+parameters/looping = true
+
 [connection signal="pressed" from="Main Menu/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Main Menu/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Main Menu/Exit" to="." method="_on_exit_pressed"]

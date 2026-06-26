@@ -22,6 +22,9 @@ var spin_reduction_on_hit = 0.05
 var speed_reduction_on_hit = 0.02
 var spin_efficiency = 0.2
 
+# Sounds
+@onready var Sounds = get_node("../Sounds")
+
 func _ready():
 	connect("area_entered", _on_hit)
 	add_to_group("beyblade")
@@ -86,6 +89,7 @@ func _on_hit(other):
 			var dir = (other.global_position - global_position).normalized()
 			other.velocity += dir * other.spin_speed * 500.0
 			print(name, " parried ", other.name)
+			Sounds.parry_sound()
 		return
 	
 	print(name, " hit ", other.name)
@@ -98,6 +102,7 @@ func _on_hit(other):
 	other.velocity += -bounce - spin_deflect
 	take_hit(0.09, 0.02)
 	other.take_hit(0.1, 0.05)
+	Sounds.hit_sound()
 
 func is_parrying() -> bool:
 	return parrying

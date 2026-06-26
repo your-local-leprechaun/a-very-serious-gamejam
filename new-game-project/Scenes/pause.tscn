@@ -11,11 +11,19 @@ script = ExtResource("1_l2mpd")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1502018897]
 layout_mode = 0
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 1921.0
-offset_bottom = 1081.0
-color = Color(0, 0, 0, 0.11764706)
+offset_left = -11.0
+offset_top = -11.0
+offset_right = 1931.0
+offset_bottom = 1093.0
+color = Color(0, 0, 0, 0.23529412)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=699129774]
+layout_mode = 0
+offset_left = 571.0
+offset_top = 468.0
+offset_right = 1375.0
+offset_bottom = 1048.0
+color = Color(0.09803922, 0.09803922, 0.09803922, 1)
 
 [node name="Wins" type="Label" parent="." unique_id=1912652183]
 layout_mode = 0
@@ -86,4 +94,5 @@ theme_override_font_sizes/font_size = 120
 text = "QuIt"
 
 [connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Option" to="." method="_on_option_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

@@ -15,7 +15,7 @@ func _input(event):
 	if not launch_ready:
 		return
 	
-	if event is InputEventKey and event.keycode == KEY_SPACE and event.pressed and launched and not parrying:
+	if event is InputEventKey and event.keycode == KEY_SPACE and event.pressed and launched and not parrying and not frozen:
 		start_parry()
 		return
 	
